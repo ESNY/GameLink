@@ -1,0 +1,51 @@
+/* RECHERCHE_CARDS.css */
+:root{
+  --card-bg: rgba(255,255,255,.06);
+  --card-border: rgba(255,255,255,.15);
+  --radius: 12px;
+  --gap: 16px;
+}
+
+/* Grille des jeux */
+#Game-list{
+  list-style:none;
+  margin:24px auto;
+  padding: 2rem;
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(180px,1fr));
+  gap:var(--gap);
+}
+
+/* Carte de jeu */
+.game-card{
+  background:var(--card-bg);
+  border:1px solid var(--card-border);
+  border-radius:var(--radius);
+  overflow:hidden;
+  transition:transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+}
+.game-card:hover,
+.game-card:focus-within{
+  transform:translateY(-2px);
+  border-color:rgba(255,255,255,.35);
+  box-shadow:0 8px 24px rgba(0,0,0,.35);
+}
+
+/* Image */
+.game-card__cover{
+  width:100%;
+  aspect-ratio:264/352;
+  object-fit:cover;
+  display:block;
+}
+
+.game-card__body{ padding:10px 12px; }
+.game-card__title{
+  margin:0;
+  color:#fff;
+  font:600 clamp(14px,1.3vw,18px)/1.2 "Roboto", system-ui, sans-serif;
+}
+
+@media (min-width:1600px){
+  #Game-list{ grid-template-columns:repeat(auto-fill,minmax(220px,1fr)); }
+}
